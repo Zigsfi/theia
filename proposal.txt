@@ -24,6 +24,6 @@ distributes the rendering. This is a classic Producer-Consumer problem.
 
 Suppose you have a film you are rendering. This film has a lot of hair, a lot of
 snow, and a lot of water. And they're ALL MOVING. As you may already know, all
-of those things are very computationally difficult to render. Wnat if, though,
+of those things are very computationally difficult to render. What if, though,
 you had a mass of computers at the ready, each with the capacity to render a
 single frame? Brilliant! Problem solved.
