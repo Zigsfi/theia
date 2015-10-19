@@ -7,7 +7,8 @@ GIT
 4. Push branch
 5. Open PR
 6. Review PR
-7. Squash commits (e.g. git checkout -b mb-fix-xyz-bug-squashed [from mb-fix-xyz-bug], git rebase -i HEAD~n, etc)
+7. Squash commits (e.g. git checkout -b mb-fix-xyz-bug-squashed [from
+   mb-fix-xyz-bug], git rebase -i HEAD~n, etc)
 8. Push squashed commit to master
 
 CODE
