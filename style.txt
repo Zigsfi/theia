@@ -1,0 +1,23 @@
+GIT
+
+0. Make and assign issue
+1. Make branch
+2. Write code
+3. Commit with issue number
+4. Push branch
+5. Open PR
+6. Review PR
+7. Squash commits
+8. Push squashed commit to master
+
+CODE
+
+1. 80 columns
+2. Bracing consistent (undecided same/different line)
+3. Function call / control flow spacing consistent
+4. Block comments only
+
+COMMUNICATION
+
+1. Non-code discussions on Slack
+2. Code discussions in issue or pull request
