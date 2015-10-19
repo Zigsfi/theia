@@ -18,7 +18,7 @@ DETAIL
 0. ABSTRACT
 
 We write a render server that, given n > 0 computers and a list of frames,
-distributes the rendering. This is classic Producer-Consumer.
+distributes the rendering. This is a classic Producer-Consumer problem.
 
 1. USE CASE
 
