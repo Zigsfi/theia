@@ -1,13 +1,13 @@
 GIT
 
 0. Make and assign issue
-1. Make branch
+1. Make branch (e.g. git checkout -b mb-fix-xyz-bug [from master])
 2. Write code
 3. Commit with issue number
 4. Push branch
 5. Open PR
 6. Review PR
-7. Squash commits
+7. Squash commits (e.g. git checkout -b mb-fix-xyz-bug-squashed [from mb-fix-xyz-bug], git rebase -i HEAD~n, etc)
 8. Push squashed commit to master
 
 CODE
