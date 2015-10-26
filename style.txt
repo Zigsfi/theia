@@ -13,21 +13,14 @@ GIT
 
 CODE
 
+0. Indentation with 4 spaces
+   0a. Makes nested things easier to read
 1. 80 columns
 2. Braces on the next line
    2a. Braces
-3. Function call / control flow spacing as follows:
-       void check_this(int i)
-       {
-           if (i < 4 && another_cond) {
-               do_a_thing();
-           }
-	   else {
-               do_another_thing();
-           }
-       }
-   This means 4 spaces, braces on same line, else on different line, no space
-   before function definition or call
+3. Function call / control flow spacing as seen in style-after.c. Braces on
+   same line, else on different line, no space before function definition or
+   call
 4. Block comments only
 5. Only really important block comments should look like this:
        /*
