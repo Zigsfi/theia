@@ -5,10 +5,14 @@ function format-comp40 {
        --mode=c --break-closing-brackets --add-brackets\
        --align-pointer=name --align-reference=name --indent-switches\
        --indent-cases --break-blocks --pad-oper\
-       --lineend=linux $1
+       --lineend=linux --dry-run --unpad-paren --pad-header $1
 
     # --delete-empty-lines
     # --add-one-line-brackets
 }
 
-format-comp40 $1
+if [ -z $2 ]; then
+    format-comp40 < $1
+else
+    format-comp40 < $1 > $2
+fi
