@@ -14,9 +14,11 @@ GIT
 CODE
 
 1. 80 columns
-2. Braces on the same line
+2. Braces on the next line
+   2a. Braces
 3. Function call / control flow spacing as follows:
-       void check_this(int i) {
+       void check_this(int i)
+       {
            if (i < 4 && another_cond) {
                do_a_thing();
            }
@@ -27,6 +29,12 @@ CODE
    This means 4 spaces, braces on same line, else on different line, no space
    before function definition or call
 4. Block comments only
+5. Only really important block comments should look like this:
+       /*
+        * thing thing thing
+	*/
+   Others should look like this:
+       /* thing thing thing */
 
 COMMUNICATION
 
