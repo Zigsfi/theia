@@ -2,7 +2,7 @@
  * http://open-source-parsers.github.io/jsoncpp-docs/
  */
 #include "parser.h"
-
+#include <iostream>
 
 Parser::Parser(std::string filename)
 {
@@ -60,10 +60,12 @@ Sphere *Parser::json_to_sphere(Json::Value json_sphere)
 }
 
 PointLight *Parser::json_to_point_light(Json::Value json_point_light) {
+
     return new PointLight(
             json_to_vector3(json_point_light["loc"]),
-            json_point_light["intensity"].asDouble());
+            json_to_color(json_point_light["intensity"]));
 }
+
 
 void Parser::parse_file(
         std::vector<SceneObject *> &scene_objs,
@@ -116,5 +118,7 @@ void Parser::parse_file(
                 std::cerr << "UNKNOWN TYPE " << type << std::endl;
             }
         }
+    } else {
+
     }
 }
