@@ -4,7 +4,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 #include "util/vector/vector.h"
 #include "scene_object.h"
@@ -26,7 +26,7 @@ private:
     Json::Value root;
 
     typedef SceneObject *(Parser::*json_converter)(Json::Value);
-    std::map<std::string, json_converter> converters;
+    std::unordered_map<std::string, json_converter> converters;
 
     bool valid_object_type(std::string type);
 
