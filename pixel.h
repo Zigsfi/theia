@@ -24,6 +24,16 @@ struct pixel_t {
         return pixel_t(r + other.r, g + other.g, b + other.b);
     }
 
+    pixel_t operator/(double scale)
+    {
+        return pixel_t(r / scale, g / scale, b / scale);
+    }
+
+    pixel_t operator/(int scale)
+    {
+        return *this / (double) scale;
+    }
+
     pixel_t(Json::Value json_pixel) : r(json_pixel[0].asInt()),
                                       g(json_pixel[1].asInt()),
                                       b(json_pixel[2].asInt())
