@@ -73,6 +73,11 @@ bool PnmImage::set_pixel(size_t x, size_t y, pixel_t pixel) {
     return true;
 }
 
+pixel_t PnmImage::get_pixel(size_t x, size_t y) const
+{
+    return this->pixels[y][x];
+}
+
 size_t PnmImage::get_width()
 {
     return this->width;
