@@ -19,7 +19,7 @@ public:
     bool write(std::string filename);
     bool write(FILE *fp);
     bool set_pixel(size_t x, size_t y, pixel_t pixel);
-    pixel_t get_pixel(size_t x, size_t y);
+    pixel_t get_pixel(size_t x, size_t y) const;
     size_t get_width();
     size_t get_height();
     long get_denominator();
