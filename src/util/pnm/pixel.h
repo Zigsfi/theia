@@ -19,6 +19,11 @@ struct pixel_t {
     {
     }
 
+    pixel_t operator+(const pixel_t &other)
+    {
+        return pixel_t(r + other.r, g + other.g, b + other.b);
+    }
+
     pixel_t(Json::Value json_pixel) : r(json_pixel[0].asInt()),
                                       g(json_pixel[1].asInt()),
                                       b(json_pixel[2].asInt())
