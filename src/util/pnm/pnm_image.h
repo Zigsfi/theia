@@ -16,13 +16,13 @@ public:
     ~PnmImage();
     void init(size_t width, size_t height, long denom);
     static PnmImage read(FILE *fp);
-    bool write(std::string filename);
-    bool write(FILE *fp);
+    bool write(std::string filename) const;
+    bool write(FILE *fp) const;
     bool set_pixel(size_t x, size_t y, pixel_t pixel);
     pixel_t get_pixel(size_t x, size_t y) const;
-    size_t get_width();
-    size_t get_height();
-    long get_denominator();
+    size_t get_width() const;
+    size_t get_height() const;
+    long get_denominator() const;
     void insert_chunk(pixel_t **chunk,
                       size_t x,
                       size_t y,
