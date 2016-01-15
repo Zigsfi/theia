@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "../../dist/json/json.h"
-#include "../../json_util.h"
+#include "dist/json/json.h"
+#include "json_util.h"
 
 
 struct pixel_t {
@@ -17,6 +17,21 @@ struct pixel_t {
 
     pixel_t(long r, long g, long b) : r(r), g(g), b(b)
     {
+    }
+
+    pixel_t operator+(const pixel_t &other)
+    {
+        return pixel_t(r + other.r, g + other.g, b + other.b);
+    }
+
+    pixel_t operator/(double scale)
+    {
+        return pixel_t(r / scale, g / scale, b / scale);
+    }
+
+    pixel_t operator/(int scale)
+    {
+        return *this / (double) scale;
     }
 
     pixel_t(Json::Value json_pixel) : r(json_pixel[0].asInt()),

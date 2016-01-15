@@ -2,22 +2,27 @@
 
 #include "pnm_image.h"
 
-PnmImage::PnmImage(size_t width, size_t height, long denom) {
+PnmImage::PnmImage(size_t width, size_t height, long denom)
+{
     init(width, height, denom);
 }
 
-PnmImage::PnmImage(size_t width, size_t height) {
+PnmImage::PnmImage(size_t width, size_t height)
+{
     init(width, height, 255);
 }
 
-PnmImage::~PnmImage() {
+PnmImage::~PnmImage()
+{
     for (size_t i = 0; i < height; i++) {
          delete [] this->pixels[i];
     }
+
     delete [] this->pixels;
 }
 
-void PnmImage::init(size_t width, size_t height, long denom) {
+void PnmImage::init(size_t width, size_t height, long denom)
+{
     this->width = width;
     this->height = height;
     this->denominator = denom;
@@ -28,12 +33,13 @@ void PnmImage::init(size_t width, size_t height, long denom) {
     }
 }
 
-PnmImage PnmImage::read(FILE *fp) {
+PnmImage PnmImage::read(FILE *fp)
+{
     /* read from file tho */
     return PnmImage(100, 100, 255);
 }
 
-bool PnmImage::write(std::string filename)
+bool PnmImage::write(std::string filename) const
 {
     FILE *fp = fopen(filename.c_str(), "w+");
     bool res = write(fp);
@@ -41,7 +47,8 @@ bool PnmImage::write(std::string filename)
     return res;
 }
 
-bool PnmImage::write(FILE *fp) {
+bool PnmImage::write(FILE *fp) const
+{
     if (fp == NULL) {
         return false;
     }
@@ -60,7 +67,8 @@ bool PnmImage::write(FILE *fp) {
     return true;
 }
 
-bool PnmImage::set_pixel(size_t x, size_t y, pixel_t pixel) {
+bool PnmImage::set_pixel(size_t x, size_t y, pixel_t pixel)
+{
     if (x >= width || y >= height) {
         return false;
     }
@@ -71,6 +79,21 @@ bool PnmImage::set_pixel(size_t x, size_t y, pixel_t pixel) {
 
     this->pixels[y][x] = pixel;
     return true;
+}
+
+pixel_t PnmImage::get_pixel(size_t x, size_t y) const
+{
+    return this->pixels[y][x];
+}
+
+size_t PnmImage::get_width() const
+{
+    return this->width;
+}
+
+size_t PnmImage::get_height() const
+{
+    return this->height;
 }
 
 void PnmImage::insert_chunk(pixel_t **chunk,
@@ -85,7 +108,17 @@ void PnmImage::insert_chunk(pixel_t **chunk,
         }
     }
 }
-long PnmImage::get_denominator()
+
+long PnmImage::get_denominator() const
 {
     return denominator;
+}
+
+void PnmImage::map(map_function f)
+{
+    for (size_t y = 0; y < height; y++) {
+        for (size_t x = 0; x < width; x++) {
+            pixels[y][x] = f(this, pixels[y][x], x, y);
+        }
+    }
 }
